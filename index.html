@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proposal Skripsi - Reza Ditya Kesuma</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        uin: {
+                            gold: '#C5A059',
+                            green: '#0F5132',
+                            dark: '#0a3622',
+                            light: '#f8f9fa'
+                        }
+                    },
+                    fontFamily: {
+                        serif: ['"Playfair Display"', 'serif'],
+                        sans: ['"Inter"', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        .animate-enter {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.8s ease-out;
+        }
+        .animate-enter.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #C5A059;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0F5132;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <!-- Navigation (Sticky Top) -->
+    <nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-uin-gold/30 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo / Name -->
+                <a href="#intro" class="flex items-center space-x-3 cursor-pointer">
+                    <div class="w-8 h-8 bg-uin-green rounded-full flex items-center justify-center text-white font-serif font-bold">R</div>
+                    <span class="font-bold text-uin-dark text-sm sm:text-base hidden sm:block">Reza Ditya Kesuma | 22103040178</span>
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-6 text-sm font-medium">
+                    <a href="#intro" class="nav-link text-gray-600 hover:text-uin-green transition cursor-pointer">Judul</a>
+                    <a href="#latar-belakang" class="nav-link text-gray-600 hover:text-uin-green transition cursor-pointer">Latar Belakang</a>
+                    <a href="#rumusan" class="nav-link text-gray-600 hover:text-uin-green transition cursor-pointer">Rumusan Masalah</a>
+                    <a href="#teori" class="nav-link text-gray-600 hover:text-uin-green transition cursor-pointer">Landasan Teori</a>
+                    <a href="#metode" class="nav-link text-gray-600 hover:text-uin-green transition cursor-pointer">Metode</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-uin-green p-2 focus:outline-none">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Mobile Menu (Hidden by default) -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t p-4 space-y-3 shadow-lg absolute w-full">
+            <a href="#intro" class="mobile-nav-link block text-gray-700 hover:text-uin-green py-2 border-b border-gray-100">Judul</a>
+            <a href="#latar-belakang" class="mobile-nav-link block text-gray-700 hover:text-uin-green py-2 border-b border-gray-100">Latar Belakang</a>
+            <a href="#rumusan" class="mobile-nav-link block text-gray-700 hover:text-uin-green py-2 border-b border-gray-100">Rumusan Masalah</a>
+            <a href="#teori" class="mobile-nav-link block text-gray-700 hover:text-uin-green py-2 border-b border-gray-100">Teori</a>
+            <a href="#metode" class="mobile-nav-link block text-gray-700 hover:text-uin-green py-2">Metode</a>
+        </div>
+    </nav>
+
+    <!-- 1. HERO / JUDUL -->
+    <section id="intro" class="min-h-screen flex items-center justify-center bg-gradient-to-br from-uin-dark to-black text-white relative overflow-hidden pt-16">
+        <!-- Decoration BG -->
+        <div class="absolute top-0 right-0 w-96 h-96 bg-uin-gold opacity-10 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2"></div>
+        <div class="absolute bottom-0 left-0 w-64 h-64 bg-uin-green opacity-20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2"></div>
+        
+        <div class="max-w-5xl mx-auto px-6 text-center z-10 animate-enter visible">
+            <div class="inline-block px-4 py-1 mb-6 border border-uin-gold/50 rounded-full text-uin-gold text-xs tracking-widest uppercase font-semibold bg-black/30">
+                Seminar Proposal Skripsi
+            </div>
+            <h1 class="text-3xl md:text-5xl lg:text-6xl font-serif font-bold leading-tight mb-8 text-transparent bg-clip-text bg-gradient-to-r from-white via-gray-200 to-uin-gold">
+                Tanggung Jawab Pribadi Direksi Atas Kepailitan Perseroan Terbatas Akibat Kelalaian Substantif dan Administratif
+            </h1>
+            <p class="text-lg md:text-xl text-gray-300 font-light italic mb-10 max-w-3xl mx-auto">
+                (Studi Komparatif Putusan Pengadilan Niaga Surabaya No. 39/Pdt.Sus-Gugatan Lain-Lain/2023 dan No. 40/Pdt.Sus-Gugatan Lain-Lain/2023)
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-2xl mx-auto text-left bg-white/5 p-6 rounded-2xl border border-white/10 backdrop-blur-sm">
+                <div>
+                    <p class="text-xs text-uin-gold uppercase tracking-wider mb-1">Penyusun</p>
+                    <p class="font-semibold text-lg">Reza Ditya Kesuma</p>
+                    <p class="text-sm text-gray-400">NIM: 22103040178</p>
+                </div>
+                <div class="md:text-right">
+                    <p class="text-xs text-uin-gold uppercase tracking-wider mb-1">Dosen Pembimbing</p>
+                    <p class="font-semibold text-lg">Dr. Sri Wahyuni, S.Ag., M.Ag., M.Hum.</p>
+                    <p class="text-sm text-gray-400">NIP: 19770107 200604 2 002</p>
+                </div>
+            </div>
+            
+            <div class="mt-12">
+                <p class="text-sm text-gray-400">Program Studi Ilmu Hukum <br> Fakultas Syari'ah dan Hukum <br> UIN Sunan Kalijaga Yogyakarta</p>
+            </div>
+
+            <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                <a href="#latar-belakang" class="text-white/50 hover:text-white transition cursor-pointer">
+                    <i class="fas fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. LATAR BELAKANG (THE CORE PROBLEM) -->
+    <section id="latar-belakang" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-uin-green text-sm font-bold tracking-widest uppercase mb-2">Latar Belakang</h2>
+                <h3 class="text-3xl md:text-4xl font-serif font-bold text-gray-900">Anomali Hukum: PT Alam Galaxy</h3>
+                <div class="w-24 h-1 bg-uin-gold mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- The Concept Flow -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+                <!-- Card 1 -->
+                <div class="p-8 bg-gray-50 rounded-xl border-l-4 border-uin-green hover:shadow-xl transition duration-300 animate-on-scroll">
+                    <div class="w-12 h-12 bg-uin-green/10 text-uin-green rounded-lg flex items-center justify-center mb-4 text-xl">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Prinsip Das Sollen</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Secara normatif, PT menganut <i>Limited Liability</i>. Harta pribadi direksi terpisah dari harta perusahaan. Perlindungan ini hanya bisa ditembus jika ada kesalahan (fraud/negligence).
+                    </p>
+                </div>
+                <!-- Card 2 -->
+                <div class="p-8 bg-gray-50 rounded-xl border-l-4 border-uin-gold hover:shadow-xl transition duration-300 animate-on-scroll" style="transition-delay: 100ms;">
+                    <div class="w-12 h-12 bg-uin-gold/10 text-uin-gold rounded-lg flex items-center justify-center mb-4 text-xl">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Fenomena Das Sein</h4>
+                    <p class="text-gray-600 text-sm leading-relaxed">
+                        Terjadi kepailitan pada PT Alam Galaxy. Pengadilan menjatuhkan sanksi <b>Tanggung Renteng</b> (harta pribadi disita) kepada Direksi yang sama dalam dua putusan berbeda.
+                    </p>
+                </div>
+                <!-- Card 3 -->
+                <div class="p-8 bg-uin-dark text-white rounded-xl border-l-4 border-red-500 hover:shadow-xl transition duration-300 animate-on-scroll" style="transition-delay: 200ms;">
+                    <div class="w-12 h-12 bg-white/10 text-white rounded-lg flex items-center justify-center mb-4 text-xl">
+                        <i class="fas fa-balance-scale-right"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Core Problem</h4>
+                    <p class="text-gray-300 text-sm leading-relaxed">
+                        Terjadi penyetaraan bobot hukuman antara <b>Kelalaian Administratif</b> (Putusan 39) dengan <b>Kelalaian Substantif</b> (Putusan 40). Apakah adil?
+                    </p>
+                </div>
+            </div>
+
+            <!-- THE COMPARISON (INTERACTIVE) -->
+            <div class="glass-panel p-8 rounded-2xl shadow-lg border border-gray-200 animate-on-scroll">
+                <div class="text-center mb-8">
+                    <span class="bg-red-100 text-red-800 text-xs font-bold px-3 py-1 rounded-full uppercase">Objek Penelitian</span>
+                    <h4 class="text-2xl font-bold mt-2 text-gray-800">Perbandingan Dua Putusan (Studi Kasus)</h4>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-8 relative">
+                    <!-- VS Badge -->
+                    <div class="hidden md:flex absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white border-2 border-gray-200 rounded-full items-center justify-center font-bold text-gray-400 z-10">VS</div>
+
+                    <!-- Putusan 40 -->
+                    <div class="bg-blue-50 p-6 rounded-xl border border-blue-100">
+                        <div class="flex items-center justify-between mb-4 border-b border-blue-200 pb-2">
+                            <h5 class="font-bold text-blue-800">Putusan No. 40/2023</h5>
+                            <span class="text-xs bg-blue-200 text-blue-800 px-2 py-1 rounded">Substantif</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-start"><i class="fas fa-check mt-1 mr-2 text-blue-500"></i> <span>Gagal mitigasi kerugian (2018-2020).</span></li>
+                            <li class="flex items-start"><i class="fas fa-check mt-1 mr-2 text-blue-500"></i> <span>Tidak membuat Rencana Kerja Tahunan.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check mt-1 mr-2 text-blue-500"></i> <span>Kerugian miliaran rupiah berturut-turut.</span></li>
+                            <li class="mt-4 pt-2 font-semibold text-blue-900 border-t border-blue-200">
+                                Kesimpulan: Pelanggaran <i>Business Judgment Rule</i> & <i>Duty of Care</i>.
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Putusan 39 -->
+                    <div class="bg-orange-50 p-6 rounded-xl border border-orange-100">
+                        <div class="flex items-center justify-between mb-4 border-b border-orange-200 pb-2">
+                            <h5 class="font-bold text-orange-800">Putusan No. 39/2023</h5>
+                            <span class="text-xs bg-orange-200 text-orange-800 px-2 py-1 rounded">Administratif</span>
+                        </div>
+                        <ul class="space-y-3 text-sm text-gray-700">
+                            <li class="flex items-start"><i class="fas fa-check mt-1 mr-2 text-orange-500"></i> <span>Tidak menyelenggarakan RUPS Tahunan.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check mt-1 mr-2 text-orange-500"></i> <span>Tidak membuat Laporan Tahunan 2021.</span></li>
+                            <li class="flex items-start"><i class="fas fa-check mt-1 mr-2 text-orange-500"></i> <span>Tidak menyerahkan dokumen ke Kurator.</span></li>
+                            <li class="mt-4 pt-2 font-semibold text-orange-900 border-t border-orange-200">
+                                Kesimpulan: Pelanggaran Prosedur dianggap setara dengan kerugian bisnis fatal.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Novelty Section -->
+             <div class="mt-12 bg-gray-900 text-white p-6 rounded-xl animate-on-scroll">
+                <div class="flex flex-col md:flex-row items-center gap-6">
+                    <div class="flex-shrink-0 w-16 h-16 bg-uin-gold rounded-full flex items-center justify-center">
+                        <i class="fas fa-lightbulb text-2xl text-white"></i>
+                    </div>
+                    <div>
+                        <h4 class="text-lg font-bold text-uin-gold">Kebaruan Penelitian (Novelty)</h4>
+                        <p class="text-sm text-gray-300 mt-2">
+                            Membantah asumsi literatur terdahulu (seperti Valentino Pattikawa, 2022) yang menyatakan sanksi administratif tidak tegas. Penelitian ini membuktikan bahwa <b>"Administrative Non-Compliance"</b> dalam kepailitan kini dikualifikasikan sebagai pelanggaran <i>Fiduciary Duty</i> berat.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 3. RUMUSAN MASALAH -->
+    <section id="rumusan" class="py-20 bg-gray-100 relative">
+        <div class="absolute inset-0 opacity-5 bg-[radial-gradient(#0F5132_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="md:w-1/3 animate-on-scroll">
+                    <h2 class="text-5xl font-serif font-bold text-gray-200 mb-[-20px] ml-[-10px]">?</h2>
+                    <h3 class="text-3xl font-bold text-gray-900 mb-6">Rumusan<br><span class="text-uin-green">Masalah</span></h3>
+                    <p class="text-gray-600">Fokus penelitian ini dibatasi pada dua pertanyaan yuridis mendasar.</p>
+                </div>
+
+                <div class="md:w-2/3 space-y-6">
+                    <!-- Q1 -->
+                    <div class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-uin-gold animate-on-scroll">
+                        <div class="flex gap-4">
+                            <span class="text-4xl font-bold text-gray-200 group-hover:text-uin-gold transition">01</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-800 mb-2">Kualifikasi Yuridis</h4>
+                                <p class="text-gray-600">Bagaimana kualifikasi yuridis pembedaan antara <i>"management negligence"</i> dan <i>"administrative negligence"</i> yang dapat menghapuskan pertanggungjawaban terbatas Direksi menurut UU PT?</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Q2 -->
+                    <div class="group bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition border-l-4 border-uin-green animate-on-scroll">
+                        <div class="flex gap-4">
+                            <span class="text-4xl font-bold text-gray-200 group-hover:text-uin-green transition">02</span>
+                            <div>
+                                <h4 class="text-lg font-bold text-gray-800 mb-2">Analisis Ratio Decidendi</h4>
+                                <p class="text-gray-600">Bagaimana pertimbangan hakim dalam menerapkan sanksi yang sama (tanggung renteng) pada Putusan No. 39 (Administratif) dibandingkan dengan Putusan No. 40 (Substantif)?</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. KERANGKA TEORITIK -->
+    <section id="teori" class="py-20 bg-uin-dark text-white">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center mb-16 animate-on-scroll">
+                <h2 class="text-uin-gold text-sm font-bold tracking-widest uppercase mb-2">Pisau Analisis</h2>
+                <h3 class="text-3xl font-serif font-bold">Kerangka Teoretik</h3>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Theory 1 -->
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/10 hover:bg-white/20 transition cursor-pointer group animate-on-scroll">
+                    <div class="h-12 w-12 bg-blue-500/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                        <i class="fas fa-building text-blue-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Legal Entity & Agency Theory</h4>
+                    <p class="text-sm text-gray-300 mb-4">
+                        <b>Separate Legal Entity:</b> Harta terpisah.<br>
+                        <b>Agency Theory:</b> Asimetri informasi antara <i>Principal</i> (PT) dan <i>Agent</i> (Direksi). Kelalaian admin = menyembunyikan informasi.
+                    </p>
+                </div>
+
+                <!-- Theory 2 -->
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/10 hover:bg-white/20 transition cursor-pointer group animate-on-scroll" style="transition-delay: 100ms;">
+                    <div class="h-12 w-12 bg-green-500/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                        <i class="fas fa-hand-holding-heart text-green-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Fiduciary Duty Doctrine</h4>
+                    <p class="text-sm text-gray-300 mb-4">
+                        <b>Duty of Care:</b> Kehati-hatian (Relevan Putusan 40).<br>
+                        <b>Duty of Loyalty:</b> Kepatuhan hukum (Relevan Putusan 39).<br>
+                        <b>Duty-Shifting Rule:</b> Saat insolvensi, tugas direksi bergeser melayani Kreditur.
+                    </p>
+                </div>
+
+                <!-- Theory 3 -->
+                <div class="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/10 hover:bg-white/20 transition cursor-pointer group animate-on-scroll" style="transition-delay: 200ms;">
+                    <div class="h-12 w-12 bg-red-500/20 rounded-full flex items-center justify-center mb-4 group-hover:scale-110 transition">
+                        <i class="fas fa-bullseye text-red-300"></i>
+                    </div>
+                    <h4 class="text-xl font-bold mb-3">Piercing the Corporate Veil</h4>
+                    <p class="text-sm text-gray-300 mb-4">
+                        Doktrin untuk merobek tabir perlindungan.
+                        <br>Indikator: <i>Absence of corporate formalities</i> (Ketiadaan RUPS/Laporan) menjadikan PT sekadar <i>Alter Ego</i> pengurus.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. METODE PENELITIAN -->
+    <section id="metode" class="py-20 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-start gap-12">
+                <div class="md:w-1/3 sticky top-24 animate-on-scroll">
+                    <h3 class="text-3xl font-serif font-bold text-gray-900 mb-4">Metode<br>Penelitian</h3>
+                    <p class="text-gray-600 text-sm">Penelitian Hukum Kepustakaan (<i>Library Research</i>) yang bersifat Normatif.</p>
+                </div>
+
+                <div class="md:w-2/3 grid grid-cols-1 sm:grid-cols-2 gap-6 animate-on-scroll">
+                    <!-- Item -->
+                    <div class="p-5 border border-gray-200 rounded-lg hover:border-uin-green transition">
+                        <h5 class="text-sm uppercase text-gray-400 font-bold mb-2">Pendekatan</h5>
+                        <p class="font-semibold text-gray-800">Statute Approach (UU PT & UU Kepailitan)</p>
+                        <p class="font-semibold text-gray-800 mt-1">Case Approach (Putusan 39 & 40)</p>
+                    </div>
+                    <!-- Item -->
+                    <div class="p-5 border border-gray-200 rounded-lg hover:border-uin-green transition">
+                        <h5 class="text-sm uppercase text-gray-400 font-bold mb-2">Sumber Data</h5>
+                        <p class="font-semibold text-gray-800">Bahan Hukum Primer (UU, Putusan)</p>
+                        <p class="font-semibold text-gray-800 mt-1">Bahan Hukum Sekunder (Jurnal, Buku)</p>
+                    </div>
+                    <!-- Item -->
+                    <div class="p-5 border border-gray-200 rounded-lg hover:border-uin-green transition">
+                        <h5 class="text-sm uppercase text-gray-400 font-bold mb-2">Analisis</h5>
+                        <p class="font-semibold text-gray-800">Kualitatif dengan Logika Deduktif (Silogisme Hukum)</p>
+                    </div>
+                     <!-- Item -->
+                     <div class="p-5 border border-gray-200 rounded-lg hover:border-uin-green transition">
+                        <h5 class="text-sm uppercase text-gray-400 font-bold mb-2">Kegunaan</h5>
+                        <p class="font-semibold text-gray-800">Early Warning bagi Direksi & Strategi bagi Kurator</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-100 py-10 border-t border-gray-200">
+        <div class="max-w-7xl mx-auto px-6 text-center">
+            <h4 class="font-bold text-gray-800">Terima Kasih</h4>
+            <p class="text-gray-500 text-sm mt-2">Mohon arahan dan masukan dari Dewan Penguji.</p>
+            <div class="mt-8 text-xs text-gray-400">
+                &copy; 2025 Reza Ditya Kesuma - UIN Sunan Kalijaga Yogyakarta
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        // Animation on Scroll using Intersection Observer
+        const observerOptions = {
+            root: null,
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    // Add animate-enter explicitly if not present (safeguard)
+                    if (!entry.target.classList.contains('animate-enter')) {
+                         entry.target.classList.add('animate-enter');
+                    }
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.animate-on-scroll').forEach((element) => {
+            element.classList.add('animate-enter');
+            observer.observe(element);
+        });
+
+        // Fixed Smooth Scrolling & Menu Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+
+            if(mobileMenuBtn && mobileMenu) {
+                mobileMenuBtn.addEventListener('click', () => {
+                    mobileMenu.classList.toggle('hidden');
+                });
+            }
+
+            // Smooth scrolling for ALL anchor links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+
+                    if (targetElement) {
+                        // Scroll to element
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+
+                        // If mobile menu is open, close it after clicking
+                        if (mobileMenu && !mobileMenu.classList.contains('hidden')) {
+                            mobileMenu.classList.add('hidden');
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
